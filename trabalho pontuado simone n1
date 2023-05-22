@@ -1,0 +1,46 @@
+nomes = {}
+idades = {}
+cpfs = {}
+menores = {}
+nome = ""
+idade = ""
+cpf = ""
+
+while nome != "sair":
+    nome = input("Digite o nome, se quiser parar de digitar nomes, digite 'sair': ")
+    if nome != "sair":
+        nomes[nome] = 1
+
+while idade != "0":
+    idade = input("Digite a idade das pessoas em ordem, se quiser parar de digitar idades, digite '0': ")
+    if idade != "0":
+        idades[int(idade)] = 2
+
+while cpf != "sair":
+    cpf = input("Digite o CPF das pessoas em ordem, se quiser parar de digitar CPFs, digite 'sair': ")
+    if cpf != "sair":
+        cpfs[cpf] = 3
+
+del nomes["sair"]
+del cpfs["sair"]
+
+idades.popitem()
+print("Idades:")
+for idade_valor in idades.keys():
+    print(idade_valor)
+
+menor_presente = False
+for nome, idade_valor in nomes.items():
+    if idade_valor < 18:
+        menor_presente = True
+        menores[nome] = idade_valor
+
+if menor_presente:
+    print("Tem menor aqui!")
+else:
+    print("Tá suave")
+
+print("Pessoas menores de idade:")
+for nome, idade_valor in menores.items():
+    print(f"Nome: {nome}")
+    print(f"Idade: {idade_valor}")
