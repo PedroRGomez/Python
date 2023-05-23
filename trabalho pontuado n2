@@ -1,0 +1,16 @@
+principal = {}
+backup = {}
+decisao = 0
+
+while decisao != 2:
+    for i in range(5):
+        dados_novos = float(input("Insira os dados desejados: "))
+        principal[dados_novos] = 1
+    
+    print(principal)
+    backup.update(principal)
+    principal.clear()
+    
+    print(principal)
+    
+    decisao = int(input("Deseja continuar (1) ou parar (2)? "))
